@@ -64,6 +64,12 @@ The emphasis here is to provide a unique set of results, theorems and views on G
 \end{flushleft}
 
 \begin{flushleft}
+Every proof contained in these set of notes is mine, unless otherwise specified.
+
+\end{flushleft}
+
+
+\begin{flushleft}
 \textit{Reference Text: Topology : A First Course - by Munkres}
 
 \end{flushleft}
@@ -91,8 +97,8 @@ A few remarks on the definition of a topology.
 \textbf{\underline{Question:}} 
 \ If $\mathcal{T}$ is a topology on a set $X$, then why in the definition of a topology, do we have the condition that only the intersection of finite sub-collections of $\mathcal{T}$ be in $\mathcal{T}$? As opposed to arbitrary subcollections?
 \\ \\
-\textbf{\underline{Answer:}} 
-\ Let's assume for the moment that we can take arbitrary subcollections of the topology $\mathcal{T}$. And let's look at an example where $X = \mathbb{R}$ and $\mathcal{T}$ is the standard topology on $\mathbb{R}$ (i.e we are looking at the topological space $(\mathbb{R}, \mathcal{T})$.
+\textbf{\underline{Answer:}}  
+\ (By Ted Shifrin) Let's assume for the moment that we can take arbitrary subcollections of the topology $\mathcal{T}$. And let's look at an example where $X = \mathbb{R}$ and $\mathcal{T}$ is the standard topology on $\mathbb{R}$ (i.e we are looking at the topological space $(\mathbb{R}, \mathcal{T})$.
 \\ \\
 Let $\mathcal{K}$ be the subcollection of $\mathcal{T}$ of all sets of the form $(\frac{-1}{n}, \frac{1}{n})$. In other words $$\mathcal{K} = \left\{\left(\frac{-1}{n}, \frac{1}{n}\right) \ \middle| \ \frac{-1}{n}, \frac{1}{n} \in \mathbb{R}\right\}$$.
 
@@ -383,13 +389,61 @@ If $A$ is closed in $X$ and $B$ is closed in $Y$, then $A \times B$ is closed in
 \end{theorem}
 
 \begin{proof}
-We'll let $\mathcal{T}_X$ and $\mathcal{T}_Y$ denote the topologies on $X$ and $Y$ respectively. Since $A$ is closed in $X$, we have $X - A \in \mathcal{T}_X$ and since $B$ is closed in $Y$ we have $Y - B \in \mathcal{T}_Y$ Now by definition of the product topology $\mathcal{T}$ on $X \times Y$, $$\mathcal{T} = \left\{ \ \bigcup_{U \in \mathcal{T}_X, \ V \in \mathcal{T}_Y} U \times V \right\}$$ and by elementary set operations $$(X\times Y)-(A\times B)=\Big((X- A)\times Y\Big)\cup\Big(X\times(Y - B)\Big)$$.
+We'll let $\mathcal{T}_X$ and $\mathcal{T}_Y$ denote the topologies on $X$ and $Y$ respectively. Since $A$ is closed in $X$, we have $X - A \in \mathcal{T}_X$ and since $B$ is closed in $Y$ we have $Y - B \in \mathcal{T}_Y$ Now by definition of the product topology $\mathcal{T}$ on $X \times Y$, $$\mathcal{T} = \left\{ \ \bigcup_{U \in \mathcal{T}_X, \ V \in \mathcal{T}_Y} U \times V \right\}$$ and by elementary set operations $$(X\times Y)-(A\times B)=\Big((X- A)\times Y\Big)\cup\Big(X\times(Y - B)\Big)$$
 Now since $X - A \in \mathcal{T}_X$ and by the definition of a topology, $Y \in \mathcal{T}_Y$, we have $\left((X- A)\times Y\right) \in \mathcal{T}$ and since $Y - B \in \mathcal{T}_Y$ and by the definition of a topology, $X \in \mathcal{T}_X$, we have $\left(X\times(Y - B)\right) \in \mathcal{T}$. Hence, since $\mathcal{T}$, the product topology, is a topology by definition we have$$\Big((X- A)\times Y\Big)\cup\Big(X\times(Y - B)\Big) = (X\times Y)-(A\times B) \in \mathcal{T}$$ so that $A \times B$ is closed in $X \times Y$.
 \end{proof}
 
 \newpage
 
-\section{Haursdoff Spaces}
+\begin{theorem}
+If $U$ is open in $X$ and $A$ is closed in $X$, then $U-A$ is open in $X$, and $A-U$ is closed in $X$
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal{T}$ denote the topology on $X$. Then $U \in \mathcal{T}$ and $X-A \in \mathcal{T}$. Since $\mathcal{T}$ is a topology, we have $(X-A) \cap U \in \mathcal{T}$. Therefore $(X-A) \cap U$ is open so that $X - ((X-A) \cap U)$ is closed. \\ \\ By the algebra of sets, $X - ((X-A) \cap U) = X - (X-A) \cap X-U = X \cap A \cap (X-U) = A \cap (X-U) = X \cap (A-U) = A- U$. Therefore $A-U$ is closed. 
+\\ \\
+And $(X-A) \cap U = (X \cap U) - A = U-A$. Therefore $U-A$ is open and hence $U-A \in \mathcal{T}$
+\end{proof}
+
+\begin{remark}
+\textbf{This theorem is quite important}, and essentially says the following. 
+\begin{itemize}
+  \item Any open set minus a closed set is open.
+  \item Any closed set minus an open set is closed.
+\end{itemize}
+\end{remark}
+
+\medskip
+
+\begin{remark}[Comment]
+I proved this theorem in John Dory's on 06 January 2017, while eating butternut and spinach and having a cappuccino
+\end{remark}
+\bigskip
+\begin{theorem}
+If $A$ and $B$ are subsets of a topological space $(X, \mathcal{T})$ and $A \subset B$, then $\overline{A} \subset \overline{B}$ (Ex 17.6 in Munkres)
+\end{theorem}
+
+\begin{proof}
+We'll use the notation $U_x$ to be an open set of $X$ containing $x$, (i.e $U_x := x \in U$ and $U \in \mathcal{T})$. Now $x \in \overline{A}$ if for every $U_x \in \mathcal{T}$ we have $U_x \cap A \neq \emptyset$. And since $A \subset B$, it follows that if $U_x \cap A \neq \emptyset$, then $U_x \cap B \neq \emptyset$, so every open set containing $x$ intersecting $A$, also intersects $B$, hence $x \in \overline{A} \simplies x \in \overline{B}$, and we have $\overline{A} \subset \overline{B}.$
+\end{proof}
+
+\medskip
+
+\begin{theorem}
+If $A$ and $B$ are subsets of a topological space $(X, \mathcal{T})$, then $\overline{A \cup B} = \overline{A} \cup \overline{B}$
+\end{theorem}
+
+\begin{proof}
+We'll again use the notation, $U_x$ to be an open set of $X$ containing $x$, (i.e $U_x := x \in U$ and $U \in \mathcal{T})$. \\ \\Now $x \in \overline{A \cup B}$ if every $U_x \cap (A \cup B) \neq \emptyset \iff (U_x \cap A) \cup (U_x \cap B) \neq \emptyset$. (The logical equivalence used here is by simple set operations).
+\\ \\
+And we have $x \in \overline{A}$ if $U_x \cap A \neq \emptyset$ for every $U_x \in \mathcal{T}$, and similarly  $x \in \overline{B}$ if $U_x \cap B \neq \emptyset$ for every $U_x \in \mathcal{T}$, so that $x \in \overline{A} \cup \overline{B}$ if $(U_x \cap A \neq \emptyset) \lor (U_x \cap B \neq \emptyset).$
+\\ \\
+Logically we have $(U_x \cap A \neq \emptyset) \lor (U_x \cap B \neq \emptyset) \iff (U_x \cap A) \cup (U_x \cap B) \neq \emptyset$, and hence it follows by the biconditional  above that $x \in \overline{A \cup B} \simplies  x \in \overline{A} \cup \overline{B}$ and that $x \in \overline{A} \cup \overline{B} \simplies x \in \overline{A \cup B}$ and thus we have $\overline{A \cup B} = \overline{A} \cup \overline{B}$.
+\end{proof}
+
+\newpage
+
+\section{Haursdoff Spaces (In Progress)}
 \bigskip
 \begin{definition}[Haursdoff Spaces]
 \\ \\
