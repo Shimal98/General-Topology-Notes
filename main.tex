@@ -71,8 +71,22 @@ The emphasis here is to provide a unique set of results, theorems and views on G
 \newpage
 
 \section{Definition of a Topology}
+\medskip
+\begin{definition}
+Given any set $X$, a topology $\mathcal{T}$ on $X$, is a collection of subsets of $X$, such that
 
+\begin{itemize}
+  \item $\emptyset \in \mathcal{T}$ and $X \in \mathcal{T}$
+  \item \textit{Arbitrary} unions of subcollections of $\mathcal{T}$ are contained in $\mathcal{T}$. In other words if $\mathcal{K} \subset \mathcal{T}$, then $$\left( \ \bigcup_{U \in \mathcal{K}}U \ \right) \in \mathcal{T}$$
+  \item The intersection of the elements of any \textit{finite} subcollection, $\mathcal{J} \subset \mathcal{T}$, is in $\mathcal{T}$. i.e. $$\left( \ \bigcap_{U \in \mathcal{J}}U \ \right) \in \mathcal{T}$$
+\end{itemize}
+\end{definition}
+
+\medskip
+\hrulefill
+\begin{flushleft}
 A few remarks on the definition of a topology. 
+\end{flushleft}
 \\ \\
 \textbf{\underline{Question:}} 
 \ If $\mathcal{T}$ is a topology on a set $X$, then why in the definition of a topology, do we have the condition that only the intersection of finite sub-collections of $\mathcal{T}$ be in $\mathcal{T}$? As opposed to arbitrary subcollections?
@@ -231,7 +245,7 @@ So since  $\mathcal{B}_1 \subset \mathcal{T}_2$, $\mathcal{B}_1$ is a subcollect
 
 \subsection{The Order Topology (In Progress)}
 \bigskip
-\subsection{The Subspace Topology (In Progress)}
+\subsection{The Subspace Topology}
 \begin{definition}[Subspace Topology]
 Let $(X, \mathcal{T})$ be a topological space. If $Y \subset X$, then the collection $$\mathcal{T}_Y = \{ Y \cap U \ | \  U \in \mathcal{T}\}$$ is a topology on $Y$, called the \textbf{subspace topology}.
 \end{definition}
@@ -248,7 +262,7 @@ If $\mathcal{T}$ and $\mathcal{T'}$ are topologies on $X$ and $\mathcal{T} \subs
 \textit{(Munkres Exercise 16.2)} We have $\mathcal{T} \subset \mathcal{T'}$. So given $Y \subset X$, we have the following subspace topologies $$\mathcal{T}_Y = \{Y \cap U \ | \ U \in \mathcal{T}\} \ \ \text{and} \ \ \mathcal{T'}_Y = \{ Y \cap U \ | \ U \in \mathcal{T'}\}$$
 Now since $U \in \mathcal{T} \simplies U \in \mathcal{T'}$, we have $Y \cap U \in \mathcal{T} \simplies Y \cap U \in \mathcal{T'}$, and thus we have $\mathcal{T}_Y \subset \mathcal{T'}_Y$.
 \end{proof}
-
+\medskip
 \begin{theorem}
 If $(X, \mathcal{T})$ is a topological space and $Y \subset X$ with the subspace $(Y, \mathcal{T}_Y)$, such that $Y \in \mathcal{T}$, then $ \mathcal{T}_Y \subset \mathcal{T}$
 \end{theorem}
@@ -261,14 +275,19 @@ The proof for this is trivial since, $Y \in \mathcal{T}$, and $\mathcal{T}$ is a
 \textbf{\underline{Question:}} \ If $(X, \mathcal{T})$ is a topological space and $Y \subset X$ and with $(Y, \mathcal{T}_Y)$ being a subspace. Is $\mathcal{T}_Y \subset \mathcal{T}$?
 \end{flushleft}
 \\ \\
-\textbf{\underline{Disproof:}} 
+\textbf{\underline{Disproof:}} We construct an explicit counterexample. Take $X = \mathbb{R}$, and let $\mathcal{T}$, be the standard topology on $\mathbb{R}$, and let $Y = \{0\} \subset \mathbb{R}$. Then $\mathcal{T}_Y = \left\{ \{0\} \cap U \ | \ U \in \mathcal{T} \right\}$. Now take $(-1, 1) \in \mathcal{T}$, then $\{0\} \cap (-1, 1) = \{0\} \in \mathcal{T}_Y$. But $\{0\} \not\in \mathcal{T}$. So that $U \in \mathcal{T}_Y \not\simplies U \in \mathcal{T}$. Therefore $\mathcal{T}_Y \not\subset \mathcal{T}.$
 
 
-\newpage
 \bigskip
-\subsection{The Product Topology (In Progress)}
+\subsection{The Product Topology}
 
+\begin{definition}
+Let $(X, \mathcal{T}_X)$ and $(Y, \mathcal{T}_Y)$ be topological spaces. The \textbf{product topology} on $X \times Y$ is the topology having as basis the collection $$\mathcal{B} = \left\{ \ U \times V \ \middle| \ U \in \mathcal{T}_X \ \ \text{and} \ \ V \in \mathcal{T}_Y\right\}$$
+\end{definition}
 
+\begin{remark}
+The product topology, $\mathcal{T}$, is thus $$\mathcal{T} = \left\{ \ \bigcup_{U \in \mathcal{T}_X, \ V \in \mathcal{T}_Y} U \times V \right\}
+\end{remark}
 \newpage
 
 \section{Closed Sets, Limit Points and Boundaries}
@@ -336,7 +355,7 @@ Given a subset $A \subset X$ of a topological space $(X , \mathcal{T})$, we defi
 
 \newpage
 
-\subsection{Some basic theorems}
+\subsection{Theorems}
 
 \begin{theorem}
 The set $S$ is closed if and only if $Cl(S) = S$
@@ -346,6 +365,26 @@ The set $S$ is closed if and only if $Cl(S) = S$
 $(\simplies)$. Suppose $S$ is closed. Let $\{V_{\alpha}\}$ be the collection of all closed sets containing $S$. In other words $S \subset V_{\alpha}$ for every $\alpha$. Now $S = V_{\alpha}$ for some $\alpha$ since $S$ is closed and clearly $S \subset S$, so that we have $Cl(S) = \bigcap_{\alpha}V_{\alpha} = S$
 \\ \\ 
 $(\lsimplies)$. Conversely suppose $Cl(S) = S$ and let $\{V_{\alpha}\}$ be the collection of all closed sets containing $S$. By definition $Cl(S) = \bigcap_{\alpha}V_{\alpha}$ and since $S = Cl(S)$, we have $S = \bigcap_{\alpha}V_{\alpha}$. And since arbitrary intersections of closed sets are closed, it follows that $S$ is closed.
+\end{proof}
+\medskip
+\begin{theorem}
+If $A$ is closed in $Y$ and $Y$ is closed in $X$, then $A$ is closed in $X$ (Ex 17.2 in Munkres)
+\end{theorem}
+
+\begin{proof}
+We make use of the following lemma in this proof. 
+\textit{Lemma (Theorem 17.2 in Munkres)} "Let $Y$ be a subspace of $X$. Then a set $A$ is closed in $Y$ if and only if it equals the intersection of a closed set of $X$ with $Y$".
+\\ \\
+So $A = Y \cap B$, where $B$ is a closed set of $X$. Since $A \subset Y$, it follows that $B = A$, and thus $A$ is closed in $X$.
+\end{proof}
+\medskip
+\begin{theorem}
+If $A$ is closed in $X$ and $B$ is closed in $Y$, then $A \times B$ is closed in $X \times Y$ (Ex 17.3 in Munkres)
+\end{theorem}
+
+\begin{proof}
+We'll let $\mathcal{T}_X$ and $\mathcal{T}_Y$ denote the topologies on $X$ and $Y$ respectively. Since $A$ is closed in $X$, we have $X - A \in \mathcal{T}_X$ and since $B$ is closed in $Y$ we have $Y - B \in \mathcal{T}_Y$ Now by definition of the product topology $\mathcal{T}$ on $X \times Y$, $$\mathcal{T} = \left\{ \ \bigcup_{U \in \mathcal{T}_X, \ V \in \mathcal{T}_Y} U \times V \right\}$$ and by elementary set operations $$(X\times Y)-(A\times B)=\Big((X- A)\times Y\Big)\cup\Big(X\times(Y - B)\Big)$$.
+Now since $X - A \in \mathcal{T}_X$ and by the definition of a topology, $Y \in \mathcal{T}_Y$, we have $\left((X- A)\times Y\right) \in \mathcal{T}$ and since $Y - B \in \mathcal{T}_Y$ and by the definition of a topology, $X \in \mathcal{T}_X$, we have $\left(X\times(Y - B)\right) \in \mathcal{T}$. Hence, since $\mathcal{T}$, the product topology, is a topology by definition we have$$\Big((X- A)\times Y\Big)\cup\Big(X\times(Y - B)\Big) = (X\times Y)-(A\times B) \in \mathcal{T}$$ so that $A \times B$ is closed in $X \times Y$.
 \end{proof}
 
 \newpage
