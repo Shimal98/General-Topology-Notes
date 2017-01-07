@@ -461,6 +461,32 @@ The condition that finite point sets be closed is called the \textbf{$T_1$ Axiom
 
 \end{definition}
 
+\begin{theorem}
+Every order topology is Haursdoff
+\end{theorem}
+
+\begin{proof}
+In progress
+\end{proof}
+
+\begin{theorem}
+A subspace of a Haursdoff space is Haursdoff.
+\end{theorem}
+
+\begin{proof}
+Let $(X, \mathcal{T}_X)$ be a Haursdoff space, and put $Y \subset X$ so that $(Y, \mathcal{T}_Y)$ is a subspace. Now take $x_1, x_2 \in Y$ such that $x_1 \neq x_2$. Since $(X, \mathcal{T}_X)$ is Haursdoff space, $\exists U_1, U_2 \in \mathcal{T}_X$ such that $x_1 \in U_1$, and $x_2 \in U_2$ and $U_1 \cap U_2 = \emptyset$. Then we have $Y \cap U_1 \in \mathcal{T}_Y$ and $Y \cap U_2 \in \mathcal{T}_Y$, with $x_1 \in Y \cap U_1$ and $x_2 \in Y \cap U_21$. Finally $( Y \cap U_1) \cap (Y \cap U_2) = Y \cap (U_1 \cap U_2) = Y \cap \emptyset = \emptyset$. And thus $(Y, \mathcal{T}_Y)$ is Haursdoff.
+\end{proof}
+
+\medskip
+
+\begin{theorem}
+The product of two Haursdoff Spaces is Haursdoff.
+\end{theorem}
+
+\begin{proof}
+Let $(X, \mathcal{T}_X)$ and $(Y, \mathcal{T}_Y)$ be two Haursdoff spaces. We need to prove $(X \times Y, \mathcal{T})$, where $\mathcal{T}$ is the product topology on $X \times Y$ is Haursdoff. \\ \\ By definition we have $$\mathcal{T} = \left\{\bigcup_{U \in \mathcal{T}_X, \ V \in \mathcal{T}_Y} U \times V \right\}$$ Now take $(x_1, y_1) \in X \times Y$ and $(x_2, y_2) \in X \times Y$ such that $(x_1, y_1) \neq (x_2, y_2)$. Thus we have either $x_1 \neq x_2$ or $y_1 \neq y_2$. Assume without loss of generality that $x_1 \neq x_2$. Since $(X, \mathcal{T}_X)$ is Haursdoff, $\exists \ U_1, U_2$ such that $x_1 \in U_1$ and $x_2 \in U_2$ and $U_1 \cap U_2 = \emptyset$. And take $V_1, V_2 \in \mathcal{T}_Y$ not necessarily disjoint such that $y_1 \in V_1$ and $y_2 \in V_2$. Then $(x_1, y_1) \in U_1 \times V_1$ and $(x_2, y_2) \in U_2 \times V_2$. And we have $(U_1 \times V_1) \cap  (U_2 \times V_2) = (U_1 \cap U_2) \times (V_1 \cap V_2) = \emptyset \times (V_1 \cap V_2) = \emptyset$. The proof is similar if $y_1 \neq y_2$, and thus $(X \times Y, \mathcal{T})$, where $\mathcal{T}$ is Haursdoff.
+\end{proof}
+
 \end{document}
 
 
